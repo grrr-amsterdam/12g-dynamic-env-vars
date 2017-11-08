@@ -1,0 +1,24 @@
+{
+  "name": "12g-dynamic-env-vars",
+  "version": "1.0.0",
+  "description": "npm package to load specified config vars from either a .env file, or as ENV vars from the shell",
+  "main": "config.js",
+  "dependencies": {
+    "12g-cleandotenv": "^1.0.1",
+    "fs": "^0.0.1-security"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grrr-amsterdam/12g-dynamic-env-vars.git"
+  },
+  "author": "David Spreekmeester <david@grrr.nl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grrr-amsterdam/12g-dynamic-env-vars/issues"
+  },
+  "homepage": "https://github.com/grrr-amsterdam/12g-dynamic-env-vars#readme"
+}
