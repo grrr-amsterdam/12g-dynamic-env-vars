@@ -1,6 +1,6 @@
 {
   "name": "12g-dynamic-env-vars",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "npm package to load specified config vars from either a .env file, or as ENV vars from the shell",
   "main": "config.js",
   "dependencies": {
