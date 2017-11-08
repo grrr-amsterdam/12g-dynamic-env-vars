@@ -5,23 +5,22 @@
 const fileConfig  = require('./strategy/file.js')
 const shellConfig = require('./strategy/shell.js')
 
-var configKeys = [
-    'AUTOSCALE_APP',
-    'AUTOSCALE_REGION',
-    'AUTOSCALE_KEY',
-    'AUTOSCALE_SECRET'
-];
-
-fileConfig.load(configKeys).then(result => {
-    return result
-})
-.catch(fileErr => {
-    shellConfig.load(configKeys).then(result => {
-        return result
-    })
-    .catch(shellErr => {
-        console.log(fileErr)
-        console.log(shellErr)
-        return false
-    })
-})
+module.exports = {
+    load: function(configKeys) {
+        return new Promise(
+            function (resolve, reject) {
+                fileConfig.load(configKeys).then(result => {
+                    return resolve(result)
+                })
+                .catch(fileErr => {
+                    shellConfig.load(configKeys).then(result => {
+                        return resolve(result)
+                    })
+                    .catch(shellErr => {
+                        return reject(fileErr + "\n" + shellErr)
+                    })
+                })
+            }
+        )
+    }
+}
